@@ -1,0 +1,27 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --cs-bg: #faf6f4;
+  --cs-surface: #ffffff;
+  --cs-accent: #c9184a;
+  --cs-accent-soft: #f7cad0;
+  --cs-accent-softer: #fde6ec;
+  --cs-text: #2b2320;
+  --cs-text-muted: #8a7d78;
+  --cs-border: #ecdfe0;
+  --cs-shadow: 0 10px 30px rgba(43, 35, 32, 0.06);
+}
+
+h1,
+h2,
+h3,
+.cs-heading {
+  font-family: "Playfair Display", serif;
+}

@@ -1,0 +1,127 @@
+.users-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  min-width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background: var(--cs-bg);
+}
+
+.users-container a {
+  text-decoration: none;
+  color: var(--cs-text);
+}
+
+.users-container .nav-item a {
+  color: var(--cs-accent);
+}
+
+.users-container .nav-item a.disabled {
+  color: var(--cs-text-muted);
+}
+
+.users-container .navigation-menu {
+  position: relative;
+  z-index: 10000;
+  width: 100%;
+  padding: 30px 0 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cs-text);
+}
+
+.users-container .users-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 80px;
+}
+
+.users-container .users-frame .board {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1100px;
+  max-width: 94%;
+  height: auto;
+  margin-top: 30px;
+}
+
+.users-container .board .products-table {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+}
+
+.users-container .board .user-table {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border: 1px solid var(--cs-border);
+  border-radius: 16px;
+  margin-top: 30px;
+  background: var(--cs-surface);
+  box-shadow: var(--cs-shadow);
+}
+
+.users-container .header-name {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 34px;
+  color: var(--cs-text);
+}
+
+.users-container select:focus {
+  width: auto;
+  min-width: 90%;
+}
+
+.users-container .spec-select {
+  position: relative;
+  height: 30px;
+  padding: 0px 7px;
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--cs-text);
+  background: var(--cs-surface);
+}
+
+.users-container table {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.users-container table thead {
+  color: var(--cs-text);
+  background: var(--cs-accent-softer) !important;
+}
+
+.users-container table td,
+table th {
+  text-align: center;
+  vertical-align: middle;
+}

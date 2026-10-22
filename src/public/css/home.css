@@ -1,0 +1,169 @@
+.home-container {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  width: auto;
+  height: auto;
+  min-height: 100vh;
+  background: var(--cs-bg);
+}
+
+.home-container a {
+  text-decoration: none;
+  color: var(--cs-text);
+}
+
+.home-container .nav-item a {
+  color: var(--cs-accent);
+}
+
+.home-container .nav-item a.disabled {
+  color: var(--cs-text-muted);
+}
+
+.home-container .navigation-menu {
+  position: relative;
+  z-index: 10000;
+  width: 100%;
+  padding: 30px 0 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cs-text);
+}
+
+/* ---- Liquid blob hero animation ---- */
+
+.blob-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  opacity: 0.55;
+  filter: blur(70px);
+  animation: morph 14s ease-in-out infinite, drift 18s ease-in-out infinite;
+  will-change: border-radius, transform;
+}
+
+.blob-a {
+  top: 8%;
+  left: 8%;
+  width: 420px;
+  height: 420px;
+  background: linear-gradient(135deg, #f7a8c4, #f7cad0);
+  animation-delay: 0s, 0s;
+}
+
+.blob-b {
+  top: 30%;
+  right: 6%;
+  width: 380px;
+  height: 380px;
+  background: linear-gradient(135deg, #f9d5e5, #fde6ec);
+  animation-delay: -4s, -3s;
+}
+
+.blob-c {
+  bottom: 4%;
+  left: 30%;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #c9184a, #f7a8c4);
+  opacity: 0.35;
+  animation-delay: -8s, -6s;
+}
+
+@keyframes morph {
+
+  0%,
+  100% {
+    border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
+  }
+
+  25% {
+    border-radius: 58% 42% 35% 65% / 60% 55% 45% 40%;
+  }
+
+  50% {
+    border-radius: 65% 35% 55% 45% / 40% 65% 35% 60%;
+  }
+
+  75% {
+    border-radius: 35% 65% 45% 55% / 55% 35% 65% 40%;
+  }
+}
+
+@keyframes drift {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(30px, -20px) scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    border-radius: 50% 50% 50% 50% / 45% 40% 60% 55%;
+    animation: none;
+  }
+}
+
+/* ---- Hero content ---- */
+
+.home-container .hero-frame {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 640px;
+  padding: 48px 44px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  margin: 110px auto 140px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: var(--cs-shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.home-container .hero-frame .hero-eyebrow {
+  margin-bottom: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cs-accent);
+}
+
+.home-container .hero-frame h1 {
+  margin: 0 0 18px;
+  font-family: "Playfair Display", serif;
+  font-size: 44px;
+  line-height: 1.2;
+  color: var(--cs-text);
+}
+
+.home-container .hero-frame p {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 26px;
+  color: var(--cs-text-muted);
+}

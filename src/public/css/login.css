@@ -1,0 +1,136 @@
+.login-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background: var(--cs-bg);
+}
+
+.login-container a {
+  text-decoration: none;
+  color: var(--cs-accent);
+}
+
+.login-container .login-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: auto;
+  padding: 40px 35px;
+  border: 1px solid var(--cs-border);
+  border-radius: 16px;
+  background: var(--cs-surface);
+  box-shadow: var(--cs-shadow);
+}
+
+.login-container .login-frame .login-top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.login-container .login-top span {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 34px;
+  color: var(--cs-text);
+}
+
+.login-container .login-top p {
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px;
+  color: var(--cs-text-muted);
+}
+
+.login-container .login-top div {
+  margin-top: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px;
+  color: var(--cs-text-muted);
+}
+
+.login-container .login-frame .login-input-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.login-container .login-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin-top: 18px;
+}
+
+.login-container .login-input-container label {
+  margin-bottom: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  color: var(--cs-text);
+}
+
+.login-container .login-input-container input {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  padding-left: 18px;
+  border: 1px solid var(--cs-border);
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  background: var(--cs-bg);
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.login-container .login-input-container input:focus {
+  border-color: var(--cs-accent);
+}
+
+.login-container .login-frame .login-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 54px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 28px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background: var(--cs-accent);
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.login-container .login-frame .login-btn:hover {
+  background: #a30f3a;
+}
