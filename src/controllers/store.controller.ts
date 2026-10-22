@@ -10,8 +10,7 @@ const memberService = new MemberService();
 const storeController: T = {};
 storeController.goHome = (req: Request, res: Response) => {
   try {
-    console.log("goHome");
-    res.render("home"); // send / render / redirect / json
+    res.render("home");
   } catch (err) {
     console.log("Error, goHome:", err);
     res.redirect("/admin");
@@ -20,7 +19,6 @@ storeController.goHome = (req: Request, res: Response) => {
 
 storeController.getSignup = (req: Request, res: Response) => {
   try {
-    console.log("getSignup");
     res.render("signup");
   } catch (err) {
     console.log("Error, getSignup:", err);
@@ -30,7 +28,6 @@ storeController.getSignup = (req: Request, res: Response) => {
 
 storeController.getLogin = (req: Request, res: Response) => {
   try {
-    console.log("getLogin");
     res.render("login");
   } catch (err) {
     console.log("Error, getLogin:", err);
@@ -43,9 +40,6 @@ storeController.processSignup = async (
   res: Response,
 ) => {
   try {
-    console.log("processSignup");
-    console.log("req.body", req.body);
-    console.log("req.file:", req.file); // ← MANA BU YANGI QATOR
     const file = req.file;
     if (!file)
       throw new Errors(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
@@ -75,9 +69,6 @@ storeController.processLogin = async (
   res: Response,
 ) => {
   try {
-    console.log("processLogin");
-    console.log("req.body:", req.body);
-
     const input: LoginInput = req.body;
     const result = await memberService.processLogin(input);
 
@@ -99,7 +90,6 @@ storeController.processLogin = async (
 
 storeController.logout = async (req: AdminRequest, res: Response) => {
   try {
-    console.log("logout");
     req.session.destroy(function () {
       res.redirect("/admin");
     });
@@ -111,9 +101,7 @@ storeController.logout = async (req: AdminRequest, res: Response) => {
 
 storeController.getUsers = async (req: Request, res: Response) => {
   try {
-    console.log("getUsers");
     const result = await memberService.getUsers();
-    console.log("result:", result);
 
     res.render("users", { users: result });
   } catch (err) {
@@ -124,8 +112,6 @@ storeController.getUsers = async (req: Request, res: Response) => {
 
 storeController.updateChosenUser = async (req: Request, res: Response) => {
   try {
-    console.log("updateChosenUser");
-
     const result = await memberService.updateChosenUser(req.body);
 
     res.status(HttpCode.OK).json({ data: result });
@@ -136,13 +122,12 @@ storeController.updateChosenUser = async (req: Request, res: Response) => {
   }
 };
 
-//AUTHENTICATION = tamga
+// Authentication: shows whether an admin session exists
 storeController.checkAuthSession = async (
   req: AdminRequest,
   res: Response,
 ) => {
   try {
-    console.log("checkAuthSession");
     if (req.session?.member)
       res.send(`<script>alert("${req.session.member.memberNick}")</script>`);
     else res.send(`<script>alert("${Message.NOT_AUTHENTICATED}")</script>`);
@@ -152,7 +137,7 @@ storeController.checkAuthSession = async (
   }
 };
 
-//AUTHORIZATION = tamga + huquq
+// Authorization: only the store owner (SELLER) may continue
 storeController.verifyStore = (
   req: AdminRequest,
   res: Response,

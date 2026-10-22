@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Cosmetics online store backend",
   "license": "ISC",
-  "author": "MIT",
+  "author": "Komron Mirzaev",
   "type": "commonjs",
   "main": "src/server.ts",
   "scripts": {

@@ -19,7 +19,6 @@ const memberController: T = {};
 
 memberController.getStore = async (req: Request, res: Response) => {
   try {
-    console.log("getStore");
     const result = await memberService.getStore();
 
     res.status(HttpCode.OK).json(result);
@@ -32,7 +31,6 @@ memberController.getStore = async (req: Request, res: Response) => {
 
 memberController.signup = async (req: Request, res: Response) => {
   try {
-    console.log("signup");
     const input: MemberInput = req.body,
       result: Member = await memberService.signup(input);
     const token = await authService.createToken(result);
@@ -51,7 +49,6 @@ memberController.signup = async (req: Request, res: Response) => {
 
 memberController.login = async (req: Request, res: Response) => {
   try {
-    console.log("login");
     const input: LoginInput = req.body,
       result = await memberService.login(input),
       token = await authService.createToken(result);
@@ -71,7 +68,6 @@ memberController.login = async (req: Request, res: Response) => {
 
 memberController.logout = (req: ExtendedRequest, res: Response) => {
   try {
-    console.log("logout");
     res.cookie("accessToken", null, { maxAge: 0, httpOnly: true });
     res.status(HttpCode.OK).json({ logout: true });
   } catch (err) {
@@ -86,7 +82,6 @@ memberController.getMemberDetail = async (
   res: Response,
 ) => {
   try {
-    console.log("getMemberDetail");
     const result = await memberService.getMemberDetail(req.member);
 
     res.status(HttpCode.OK).json(result);
@@ -99,7 +94,6 @@ memberController.getMemberDetail = async (
 
 memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
   try {
-    console.log("updateMember");
     const input: MemberUpdateInput = req.body;
     if (req.file) input.memberImage = req.file.path.replace(/\\/g, "/");
     const result = await memberService.updateMember(req.member, input);
@@ -114,7 +108,6 @@ memberController.updateMember = async (req: ExtendedRequest, res: Response) => {
 
 memberController.getTopUsers = async (req: Request, res: Response) => {
   try {
-    console.log("getTopUsers");
     const result = await memberService.getTopUsers();
 
     res.status(HttpCode.OK).json(result);

@@ -11,7 +11,6 @@ const messageController: T = {};
 
 messageController.createMessage = async (req: Request, res: Response) => {
   try {
-    console.log("createMessage");
     const input: MessageInput = req.body;
 
     const result = await messageService.createMessage(input);

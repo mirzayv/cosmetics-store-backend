@@ -13,7 +13,6 @@ const productController: T = {};
 /** SPA */
 productController.getProducts = async (req: Request, res: Response) => {
   try {
-    console.log("getProducts");
     const { page, limit, order, productCollection, search } = req.query;
     const inquiry: ProductInquiry = {
       order: String(order),
@@ -38,9 +37,7 @@ productController.getProducts = async (req: Request, res: Response) => {
 
 productController.getProduct = async (req: ExtendedRequest, res: Response) => {
   try {
-    console.log("getProduct");
     const { id } = req.params;
-    console.log("req.member:", req.member);
     const memberId = req.member?._id ?? null,
       result = await productService.getProduct(memberId, id as string);
 
@@ -56,11 +53,8 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
 
 productController.getAllProducts = async (req: Request, res: Response) => {
   try {
-    console.log("getAllProducts");
-    const data = await productService.getAllProducts(); //CALL
-    console.log("products:", data);
+    const data = await productService.getAllProducts();
 
-    console.log(data.length);
     res.render("products", { products: data });
   } catch (err) {
     console.log("Error, getAllProducts:", err);
@@ -74,9 +68,6 @@ productController.createNewProduct = async (
   res: Response,
 ) => {
   try {
-    console.log("createNewProduct");
-    console.log("req.body:", req.body);
-    console.log("req.files", req.files);
     if (!req?.files?.length)
       throw new Errors(HttpCode.INTERNAL_SERVER_ERROR, Message.CREATE_FAILED);
 
@@ -86,8 +77,6 @@ productController.createNewProduct = async (
     });
 
     await productService.createNewProduct(data);
-
-    console.log("data:", data);
 
     res.send(
       `<script> alert("Successful creation"); window.location.replace('/admin/product/all') </script>`,
@@ -104,7 +93,6 @@ productController.createNewProduct = async (
 
 productController.updateChosenProduct = async (req: Request, res: Response) => {
   try {
-    console.log("updateChosenProduct");
     const id = req.params.id as string;
 
     const result = await productService.updateChosenProduct(id, req.body);

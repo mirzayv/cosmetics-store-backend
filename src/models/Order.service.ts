@@ -42,7 +42,6 @@ class OrderService {
       });
 
       const orderId = newOrder._id;
-      console.log("orderId:", orderId);
       await this.recordOrderItem(orderId, input);
 
       return newOrder;
@@ -64,7 +63,6 @@ class OrderService {
     });
 
     const orderItemsState = await Promise.all(promisedList);
-    console.log("orderItemsState:", orderItemsState);
   }
 
   public async getMyOrders(
@@ -72,9 +70,7 @@ class OrderService {
     inquiry: OrderInquiry,
   ): Promise<Order[]> {
     const memberId = shapeIntoMongooseObjectId(member._id);
-    console.log("getMyOrders memberId:", memberId, "inquiry:", inquiry);
     const matches = { memberId: memberId, orderStatus: inquiry.orderStatus };
-    console.log("matches:", matches);
 
     const result = await this.orderModel
       .aggregate([

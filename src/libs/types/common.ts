@@ -7,5 +7,3 @@ declare module "express-session" {
     member: any;
   }
 }
-
-/* export function test() {} */
